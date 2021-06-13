@@ -1,0 +1,13 @@
+server:
+  port: 8087
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka01:8083/eureka/,http://eureka02:8084/eureka/,http://eureka:8082/eureka/
+
+# 开启降级feign.hystrix
+feign:
+  hystrix:
+    enabled: true

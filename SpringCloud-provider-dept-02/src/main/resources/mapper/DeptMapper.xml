@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jonyon.SpringCloud.dao.DeptDao">
+<insert id="addDept" parameterType="com.jonyon.SpringCloud.pojo.Dept">
+    insert into dept(deptname,db_source)
+        values (#{deptname},DATABASE())
+</insert>
+
+    <select id="findById" resultType="com.jonyon.SpringCloud.pojo.Dept" parameterType="Long">
+        SELECT * from dept where deptno=#{id}
+    </select>
+
+<select id="findAll" resultType="com.jonyon.SpringCloud.pojo.Dept">
+    select * from dept
+</select>
+</mapper>

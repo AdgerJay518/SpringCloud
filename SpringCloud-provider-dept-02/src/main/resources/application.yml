@@ -1,0 +1,25 @@
+server:
+  port: 8086
+
+mybatis:
+  type-aliases-package: com.jonyon.SpringCloud.pojo
+  mapper-locations: classpath:mapper/*.xml
+spring:
+  application:
+    name: springcloud-provider-dept02
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/SpringCloud02?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka01:8083/eureka/,http://eureka02:8084/eureka/,http://eureka:8082/eureka/
+  instance:
+    instance-id: springcloud-provider02
+
+info:
+  app.name: springcloud学习项目
+  company.name: Jonyon

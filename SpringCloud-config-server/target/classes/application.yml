@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: springcloud-config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://gitee.com/AdgerJay518/springcloud-config-test.git
+          force-pull: true
+          skip-ssl-validation: true
+          timeout: 10
+server:
+  port: 8090

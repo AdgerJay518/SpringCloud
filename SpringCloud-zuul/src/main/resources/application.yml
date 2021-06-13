@@ -1,0 +1,27 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: springcloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka01:8083/eureka/,http://eureka02:8084/eureka/,http://eureka:8082/eureka/
+  instance:
+    instance-id: gateway
+    prefer-ip-address: true
+
+info:
+  app.name: springcloud学习项目
+  company.name: Jonyon
+zuul:
+  # 路由相关配置
+  # 原来访问路由 eg:http://www.jonyon.com:8089/springcloud-provider-dept-hystrix/dept/find/1
+  # zull路由配置后访问路由 eg:http://www.jonyon.com:8089/hm/provider/dept/find/1
+  routes:
+    mydept.serviceId: springcloud-provider-dept-hystrix  #eureka注册中心的服务提供方路由名称
+    mydept.path: /provider/**  #将eureka注册中心的服务提供方路由名称 改为自定义路由名称
+  ignored-services: "*"  #不能再使用这个路径访问了;*： 忽略,隐藏全部的服务名称
+  prefix: /hm  #设置公共的前缀
